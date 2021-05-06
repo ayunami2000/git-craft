@@ -1,0 +1,36 @@
+name: Minecraft server
+
+on:
+  repository_dispatch:
+    types: [loop]
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Manually run minecraft server'  
+
+jobs:
+  minecraft-server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Run 🚀
+        run: |
+          export $(cat .env | xargs)
+          ./restore.sh
+          ./server.sh
+        env:
+          PAT: ${{ secrets.PAT }}
+          NGROK: ${{ secrets.NGROK }}
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: world
+          path: server/
+
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT }}
+          event-type: loop
