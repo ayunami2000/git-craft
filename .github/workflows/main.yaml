@@ -21,7 +21,8 @@ jobs:
           ./restore.sh
           ./server.sh
         env:
-          NGROK: ${{ secrets.NGROK }}
+          PKTRIOT: ${{ secrets.PKTRIOT }}
+          
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
