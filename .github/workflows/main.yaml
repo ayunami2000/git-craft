@@ -21,13 +21,7 @@ jobs:
           ./restore.sh
           ./server.sh
         env:
-          PAT: ${{ secrets.PAT }}
           NGROK: ${{ secrets.NGROK }}
-
-      - uses: actions/upload-artifact@v2
-        with:
-          name: world
-          path: server/
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
