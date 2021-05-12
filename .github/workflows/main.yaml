@@ -21,7 +21,7 @@ jobs:
           ./restore.sh
           ./server.sh
         env:
-          PKTRIOT: ${{ secrets.PKTRIOT }}
+          PEM: ${{ secrets.PEM }}
           
 
       - name: Repository Dispatch
