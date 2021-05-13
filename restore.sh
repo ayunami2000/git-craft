@@ -1,6 +1,6 @@
 #!/bin/bash
-apt update
-apt install -y autossh
+sudo apt update
+sudo apt install -y autossh
 wget -O minecraft_server.jar https://papermc.io/api/v1/paper/1.16.5/latest/download
 unzip server.zip
 #wget -O plugins/IllegalStack.jar https://api.spiget.org/v2/resources/44411/download
