@@ -1,6 +1,6 @@
 #!/bin/bash
 #./pktriot --config ./pktriot.json start > /dev/null &
-ssh -o StrictHostKeychecking=no -i ~/.ssh/ayunalt.git-craft.pem ayunalt.git-craft@portmap.io -f -N -R 23063:localhost:25565
+autossh -M 20000 -o StrictHostKeychecking=no -i ~/.ssh/ayunalt.git-craft.pem ayunalt.git-craft@portmap.io -f -N -R 23063:localhost:25565 &
 echo Starting!
 {
     sleep 5h
